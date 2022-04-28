@@ -88,6 +88,8 @@ function App() {
 			setUserGroup('fullAccessMembers');
 			setUserIsLoggedIn(true);
 			setFormMessage('');
+			setFieldLogin('');
+			setFieldPassword('');
 		} else {
 			setFormMessage('bad login');
 		}
@@ -100,12 +102,11 @@ function App() {
 			setUserIsLoggedIn(true);
 			setFormMessage('');
 			setDisplayKind('list');
+			setFieldLogin('');
+			setFieldPassword('');
 		} else {
 			setFormMessage('bad login');
 		}
-
-		setFieldLogin('');
-		setFieldPassword('');
 	};
 
 	const handleFieldLogin = (e) => {
@@ -119,6 +120,10 @@ function App() {
 	const handleLogoutButton = () => {
 		setFormMessage('');
 		setUserIsLoggedIn(false);
+	};
+
+	const formIsValid = () => {
+		return fieldLogin.trim().length > 0 && fieldPassword.trim().length > 0;
 	};
 
 	return (
@@ -173,7 +178,12 @@ function App() {
 							<ValidationFieldRequired field={fieldPassword} />
 						</div>
 						<div className="buttonRow">
-							<button onClick={handleSubmitButton}>Enter</button>
+							<button
+								disabled={!formIsValid()}
+								onClick={handleSubmitButton}
+							>
+								Enter
+							</button>
 						</div>
 					</fieldset>
 				</form>
