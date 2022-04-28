@@ -108,11 +108,11 @@ function App() {
 	};
 
 	const handleFieldLogin = (e) => {
-		setFieldLogin(e.target.value);
+		setFieldLogin(e.target.value.trim());
 	};
 
 	const handleFieldPassword = (e) => {
-		setFieldPassword(e.target.value);
+		setFieldPassword(e.target.value.trim());
 	};
 
 	const handleLogoutButton = () => {
@@ -159,6 +159,9 @@ function App() {
 								type="text"
 								id="login2"
 							/>
+							{fieldLogin.trim().length === 0 && (
+								<div className="fieldNote">required</div>
+							)}
 						</div>
 						<div className="row">
 							<label htmlFor="password">Password</label>
@@ -168,6 +171,9 @@ function App() {
 								type="password"
 								id="password"
 							/>
+							{fieldPassword.trim().length === 0 && (
+								<div className="fieldNote">required</div>
+							)}
 						</div>
 						<div className="buttonRow">
 							<button onClick={handleSubmitButton}>Enter</button>
