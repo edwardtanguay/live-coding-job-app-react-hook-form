@@ -71,7 +71,6 @@ function App() {
 			displayKindIndex = 0;
 		}
 		const _displayKind = displayKinds[displayKindIndex];
-		console.log(_displayKind);
 		setDisplayKind(_displayKind);
 	};
 
