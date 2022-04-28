@@ -12,17 +12,18 @@ _jobs.forEach((job) => {
 
 const techItemsUrl = 'https://edwardtanguay.netlify.app/share/techItems.json';
 
+const displayKinds = ['list', 'full', 'addJob'];
 const statuses = ['send', 'wait', 'interview', 'declined', 'accepted'];
 
 function App() {
 	const [displayKind, setDisplayKind] = useState('');
 	const [jobs, setJobs] = useState([]);
 	const [techItems, setTechItems] = useState([]);
-	const [userIsLoggedIn, setUserIsLoggedIn] = useState(false);
+	const [userIsLoggedIn, setUserIsLoggedIn] = useState(true); // TODO
 	const [fieldLogin, setFieldLogin] = useState('');
 	const [fieldPassword, setFieldPassword] = useState('');
 	const [formMessage, setFormMessage] = useState('');
-	const [userGroup, setUserGroup] = useState('');
+	const [userGroup, setUserGroup] = useState('fullAccessMembers'); // TODO 
 
 	const saveToLocalStorage = () => {
 		if (displayKind !== '') {
@@ -63,7 +64,13 @@ function App() {
 	}, [displayKind, jobs]);
 
 	const handleToggleView = () => {
-		const _displayKind = displayKind === 'full' ? 'list' : 'full';
+		let displayKindIndex = displayKinds.indexOf(displayKind);
+		displayKindIndex++;
+		if (displayKindIndex > displayKinds.length - 1) {
+			displayKindIndex = 0;
+		}
+		const _displayKind = displayKinds[displayKindIndex];
+		console.log(_displayKind);
 		setDisplayKind(_displayKind);
 	};
 
