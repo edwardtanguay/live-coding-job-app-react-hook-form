@@ -146,14 +146,20 @@ function App() {
 						)}
 						<button onClick={handleLogoutButton}>Logout</button>
 					</div>
-					{displayKind === 'full' ? (
+					{displayKind === 'full' && (
 						<JobsFull
 							jobs={jobs}
 							handleStatusChange={handleStatusChange}
 							techItems={techItems}
 						/>
-					) : (
+					)}
+					
+					{displayKind === 'list' && (
 						<JobsList jobs={jobs} />
+					)}
+
+					{displayKind === 'addJob' && (
+					<div>add-job page</div>
 					)}
 				</>
 			) : (
