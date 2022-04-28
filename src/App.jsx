@@ -20,11 +20,11 @@ function App() {
 	const [displayKind, setDisplayKind] = useState('');
 	const [jobs, setJobs] = useState([]);
 	const [techItems, setTechItems] = useState([]);
-	const [userIsLoggedIn, setUserIsLoggedIn] = useState(true); // TODO
+	const [userIsLoggedIn, setUserIsLoggedIn] = useState(false);
 	const [fieldLogin, setFieldLogin] = useState('');
 	const [fieldPassword, setFieldPassword] = useState('');
 	const [formMessage, setFormMessage] = useState('');
-	const [userGroup, setUserGroup] = useState('fullAccessMembers'); // TODO
+	const [userGroup, setUserGroup] = useState('');
 
 	const saveToLocalStorage = () => {
 		if (displayKind !== '') {
