@@ -4,6 +4,7 @@ import _jobs from './data/jobs.json';
 import { JobsFull } from './components/JobsFull';
 import { JobsList } from './components/JobsList';
 import md5 from 'md5';
+import { ValidationFieldRequired } from './components/ValidationFieldRequired';
 
 _jobs.forEach((job) => {
 	job.status = 'accepted';
@@ -159,9 +160,7 @@ function App() {
 								type="text"
 								id="login2"
 							/>
-							{fieldLogin.trim().length === 0 && (
-								<div className="fieldNote">required</div>
-							)}
+							<ValidationFieldRequired field={fieldLogin} />
 						</div>
 						<div className="row">
 							<label htmlFor="password">Password</label>
@@ -171,9 +170,7 @@ function App() {
 								type="password"
 								id="password"
 							/>
-							{fieldPassword.trim().length === 0 && (
-								<div className="fieldNote">required</div>
-							)}
+							<ValidationFieldRequired field={fieldPassword} />
 						</div>
 						<div className="buttonRow">
 							<button onClick={handleSubmitButton}>Enter</button>
