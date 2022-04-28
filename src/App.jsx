@@ -5,7 +5,7 @@ import { JobsFull } from './components/JobsFull';
 import { JobsList } from './components/JobsList';
 import md5 from 'md5';
 import { ValidationFieldRequired } from './components/ValidationFieldRequired';
-import { AddJobPage } from './components/AddJobPage';
+import AddJobPage from './components/AddJobPage';
 
 _jobs.forEach((job) => {
 	job.status = 'accepted';
