@@ -5,6 +5,7 @@ import { JobsFull } from './components/JobsFull';
 import { JobsList } from './components/JobsList';
 import md5 from 'md5';
 import { ValidationFieldRequired } from './components/ValidationFieldRequired';
+import { AddJobPage } from './components/AddJobPage';
 
 _jobs.forEach((job) => {
 	job.status = 'accepted';
@@ -23,7 +24,7 @@ function App() {
 	const [fieldLogin, setFieldLogin] = useState('');
 	const [fieldPassword, setFieldPassword] = useState('');
 	const [formMessage, setFormMessage] = useState('');
-	const [userGroup, setUserGroup] = useState('fullAccessMembers'); // TODO 
+	const [userGroup, setUserGroup] = useState('fullAccessMembers'); // TODO
 
 	const saveToLocalStorage = () => {
 		if (displayKind !== '') {
@@ -153,14 +154,10 @@ function App() {
 							techItems={techItems}
 						/>
 					)}
-					
-					{displayKind === 'list' && (
-						<JobsList jobs={jobs} />
-					)}
 
-					{displayKind === 'addJob' && (
-					<div>add-job page</div>
-					)}
+					{displayKind === 'list' && <JobsList jobs={jobs} />}
+
+					{displayKind === 'addJob' && <AddJobPage />}
 				</>
 			) : (
 				<form>
